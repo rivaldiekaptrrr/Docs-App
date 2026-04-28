@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../config/database');
-const { requireAuth } = require('../middleware/auth');
+const { requireAuth, JWT_SECRET } = require('../middleware/auth');
 
 // Login
 router.post('/login', async (req, res) => {
@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
         // Generate JWT token (expires in 8 hours)
         const token = jwt.sign(
             { userId: user.id, username: user.username, role: user.role },
-            process.env.JWT_SECRET,
+            JWT_SECRET,
             { expiresIn: '8h' }
         );
 

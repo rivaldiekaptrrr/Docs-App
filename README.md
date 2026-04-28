@@ -13,7 +13,9 @@ A comprehensive web-based platform for internal knowledge management, technical 
 - ✅ Step-by-step setup with **6 detailed test scenarios**
 - ✅ Realistic Indonesian data for demonstration
 - ✅ Perfect for: Development, testing, demos, training
-- **Run:** `schema.sql` + `seed.sql`
+- **Run (Database):** `schema.sql` + `seed.sql`
+- **Run (No Database):** Just start backend without `.env` (Mock Mode)
+
 
 ### 🚀 For Production/Real Use → Use [QUICKSTART.md](QUICKSTART.md)
 - ✅ **Clean database** with only default users
@@ -107,10 +109,25 @@ JWT_SECRET=your-super-secret-jwt-key
 4. Install dependencies and start server:
 ```bash
 npm install
-npm run dev
-```
-
 Server will run on `http://localhost:3000`
+
+### 🧪 Mock Mode (No Database Required)
+
+You can run the entire system without installing or configuring PostgreSQL. This is perfect for demos or quick development.
+
+1. **Activation**: Simply do **NOT** create a `.env` file in the `backend` folder, or set `MOCK_MODE=true` in your `.env`.
+2. **Built-in Data**: The system will use in-memory data (Projects, Docs, Logbooks) that resets every time the server restarts.
+3. **Start**:
+   ```bash
+   cd backend
+   npm install
+   node index.js
+   ```
+4. **Mock Credentials**:
+   - **Admin**: `admin` / `password123`
+   - **R&D**: `rnd_user` / `password123`
+   - **Viewer**: `viewer` / `password123`
+
 
 ### Frontend Setup
 

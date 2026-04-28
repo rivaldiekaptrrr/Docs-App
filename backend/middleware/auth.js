@@ -1,7 +1,12 @@
 const jwt = require('jsonwebtoken');
+
+// Import db (may be real or mock depending on MOCK_MODE)
 const db = require('../config/database');
 
-// Verify JWT token
+// JWT secret: use env value or a fixed dev fallback in mock mode
+const JWT_SECRET = process.env.JWT_SECRET || 'mock-dev-secret-do-not-use-in-production';
+
+// ─── Verify JWT token ─────────────────────────────────────────────────────────
 const verifyToken = async (req, res, next) => {
     try {
         const authHeader = req.headers['authorization'];
@@ -11,9 +16,9 @@ const verifyToken = async (req, res, next) => {
             return res.status(401).json({ error: 'Access token required' });
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, JWT_SECRET);
 
-        // Get user from database
+        // Get user from database (real or mock)
         const result = await db.query(
             'SELECT id, username, role, full_name, email FROM users WHERE id = $1',
             [decoded.userId]
@@ -35,6 +40,8 @@ const verifyToken = async (req, res, next) => {
         return res.status(500).json({ error: 'Authentication failed' });
     }
 };
+
+// ─── Role guards ──────────────────────────────────────────────────────────────
 
 // Require R&D or Admin role
 const requireRND = (req, res, next) => {
@@ -59,5 +66,6 @@ module.exports = {
     verifyToken,
     requireRND,
     requireAuth,
-    requireAdmin
+    requireAdmin,
+    JWT_SECRET, // exported so auth route can use the same secret
 };

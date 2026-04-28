@@ -2,9 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
+const fs   = require('fs');
 
-// Load environment variables
-dotenv.config();
+// Load environment variables (if .env exists)
+const envPath = path.join(__dirname, '.env');
+if (fs.existsSync(envPath)) {
+    dotenv.config();
+} else {
+    console.log('⚠️  No .env file found — starting in MOCK MODE');
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -96,9 +102,12 @@ app.use((req, res) => {
 
 // Start server
 app.listen(PORT, () => {
+    const isMock = !fs.existsSync(envPath) || !process.env.DATABASE_URL || process.env.MOCK_MODE === 'true';
     console.log(`🚀 R&D Hub API server running on port ${PORT}`);
     console.log(`📡 Environment: ${process.env.NODE_ENV || 'development'}`);
-    if (isDevelopment) {
+    if (isMock) {
+        console.log('🧪 Database: MOCK MODE (in-memory data)');
+    } else if (isDevelopment) {
         console.log(`🔓 CORS: Development mode - allowing all local network IPs`);
     } else {
         console.log(`🔒 CORS: Production mode - only configured origins: ${configuredOrigins.join(', ')}`);
