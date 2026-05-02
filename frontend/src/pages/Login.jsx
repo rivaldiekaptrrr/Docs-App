@@ -45,9 +45,9 @@ function Login() {
                 {/* Brand */}
                 <div className="login-brand">
                     <div className="login-brand-icon">
-                        <img src={logo} alt="R&D Hub Logo" className="login-logo" />
+                        <img src={logo} alt="Logo" className="login-logo" />
                     </div>
-                    <h1 className="login-title">R&D Elitech</h1>
+                    <h1 className="login-title">DocuStack</h1>
                     <p className="login-subtitle">Knowledge Management System</p>
                 </div>
 
@@ -124,16 +124,16 @@ function Login() {
                             <code>admin</code>
                         </div>
                         <div className="login-hint-item">
-                            <span className="badge badge-success">R&D</span>
-                            <code>ahmad.rnd</code>
+                            <span className="badge badge-success">Tech</span>
+                            <code>tech_user</code>
                         </div>
                         <div className="login-hint-item">
                             <span className="badge badge-secondary">Viewer</span>
-                            <code>budi.viewer</code>
+                            <code>viewer</code>
                         </div>
                     </div>
                     <p className="login-hint-pw">
-                        Admin: <code>admin123</code> | Others: <code>password123</code>
+                        Password for all users: <code>password123</code>
                     </p>
                 </div>
             </div>

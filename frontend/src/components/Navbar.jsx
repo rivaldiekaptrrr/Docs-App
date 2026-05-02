@@ -25,7 +25,7 @@ function Navbar() {
             <div className="navbar-left">
                 <Link to="/" className="navbar-brand">
                     <span className="navbar-brand-icon">
-                        <img src={logo} alt="R&D Hub" className="navbar-logo" />
+                        <img src={logo} alt="DocuStack" className="navbar-logo" />
                     </span>
                     <span className="navbar-brand-text"></span>
                 </Link>
@@ -60,7 +60,7 @@ function Navbar() {
                             <div className="navbar-user-info">
                                 <span className="navbar-user-name">{user.full_name}</span>
                                 <span className={`badge ${user.role === 'Admin' ? 'badge-primary' :
-                                    user.role === 'R&D' ? 'badge-success' : 'badge-secondary'
+                                    user.role === 'Tech' ? 'badge-success' : 'badge-secondary'
                                     }`}>
                                     {user.role}
                                 </span>
@@ -104,13 +104,15 @@ function Navbar() {
                 }
                 .navbar-brand:hover { opacity: .8; }
                 .navbar-brand-icon {
-                    width: 200px; height: 200px;
+                    height: 32px;
+                    max-width: 180px;
                     display: flex; align-items: center; justify-content: center;
                     background: transparent;
                     padding: 0;
+                    overflow: hidden;
                 }
                 .navbar-logo {
-                    width: 100%;
+                    width: auto;
                     height: 100%;
                     object-fit: contain;
                 }

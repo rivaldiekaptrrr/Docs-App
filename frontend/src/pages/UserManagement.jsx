@@ -58,20 +58,20 @@ function UserManagement() {
     };
 
     const getRoleBadge = (role) => {
-        const map = { 'Admin': 'badge-danger', 'R&D': 'badge-primary', 'Viewer': 'badge-secondary' };
+        const map = { 'Admin': 'badge-danger', 'Tech': 'badge-primary', 'Viewer': 'badge-secondary' };
         return <span className={`badge ${map[role] || 'badge-secondary'}`}>{role}</span>;
     };
 
     const getAvatarColor = (role) => {
         if (role === 'Admin') return 'var(--color-danger)';
-        if (role === 'R&D') return 'var(--color-primary)';
+        if (role === 'Tech') return 'var(--color-primary)';
         return 'var(--color-text-muted)';
     };
 
     const stats = [
         { label: 'Total Users', value: users.length, accent: 'primary', Icon: UsersIcon },
         { label: 'Admins', value: users.filter(u => u.role === 'Admin').length, accent: 'danger', Icon: ShieldCheckIcon },
-        { label: 'R&D Team', value: users.filter(u => u.role === 'R&D').length, accent: 'info', Icon: UserCircleIcon },
+        { label: 'Tech Team', value: users.filter(u => u.role === 'Tech').length, accent: 'info', Icon: UserCircleIcon },
         { label: 'Viewers', value: users.filter(u => u.role === 'Viewer').length, accent: 'secondary', Icon: UsersIcon }
     ];
 
@@ -118,7 +118,7 @@ function UserManagement() {
                         <select value={roleFilter} onChange={(e) => setRoleFilter(e.target.value)} className="form-control" style={{ maxWidth: 160 }}>
                             <option value="">All Roles</option>
                             <option value="Admin">Admin</option>
-                            <option value="R&D">R&D</option>
+                            <option value="Tech">Tech</option>
                             <option value="Viewer">Viewer</option>
                         </select>
                         {(search || roleFilter) && (
@@ -259,7 +259,7 @@ function CreateUserForm({ onClose, onSuccess }) {
                     <div className="form-group"><label className="form-label">Full Name *</label><input type="text" value={formData.full_name} onChange={(e) => setFormData({ ...formData, full_name: e.target.value })} className="form-control" required placeholder="e.g. John Doe" /></div>
                     <div className="form-group"><label className="form-label">Email</label><input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="form-control" placeholder="e.g. john@company.local" /></div>
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="form-group"><label className="form-label">Role *</label><select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} className="form-control"><option value="Viewer">Viewer</option><option value="R&D">R&D</option><option value="Admin">Admin</option></select></div>
+                        <div className="form-group"><label className="form-label">Role *</label><select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} className="form-control"><option value="Viewer">Viewer</option><option value="Tech">Tech</option><option value="Admin">Admin</option></select></div>
                         <div className="form-group"><label className="form-label">Status *</label><select value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value })} className="form-control"><option value="Active">Active</option><option value="Inactive">Inactive</option></select></div>
                     </div>
                     <div className="flex justify-end gap-3" style={{ marginTop: 'var(--sp-6)' }}>
@@ -296,7 +296,7 @@ function EditUserForm({ user, onClose, onSuccess }) {
                     <div className="form-group"><label className="form-label">Full Name *</label><input type="text" value={formData.full_name} onChange={(e) => setFormData({ ...formData, full_name: e.target.value })} className="form-control" required /></div>
                     <div className="form-group"><label className="form-label">Email</label><input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="form-control" /></div>
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="form-group"><label className="form-label">Role *</label><select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} className="form-control"><option value="Viewer">Viewer</option><option value="R&D">R&D</option><option value="Admin">Admin</option></select></div>
+                        <div className="form-group"><label className="form-label">Role *</label><select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} className="form-control"><option value="Viewer">Viewer</option><option value="Tech">Tech</option><option value="Admin">Admin</option></select></div>
                         <div className="form-group"><label className="form-label">Status *</label><select value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value })} className="form-control"><option value="Active">Active</option><option value="Inactive">Inactive</option></select></div>
                     </div>
                     <div className="flex justify-end gap-3" style={{ marginTop: 'var(--sp-6)' }}>

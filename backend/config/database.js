@@ -21,7 +21,7 @@ if (MOCK_MODE) {
     console.log('║  Running with in-memory demo data.               ║');
     console.log('║  Default credentials:                            ║');
     console.log('║    Admin   → admin / password123                 ║');
-    console.log('║    R&D     → rnd_user / password123              ║');
+    console.log('║    Tech    → tech_user / password123             ║');
     console.log('║    Viewer  → viewer / password123                ║');
     console.log('║  Data resets on every server restart.            ║');
     console.log('╚══════════════════════════════════════════════════╝');

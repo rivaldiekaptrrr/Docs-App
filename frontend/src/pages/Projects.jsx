@@ -68,7 +68,7 @@ function Projects() {
             <div className="flex justify-between items-center mb-8">
                 <div>
                     <h1 style={{ marginBottom: 'var(--sp-1)' }}>Projects</h1>
-                    <p className="text-secondary" style={{ margin: 0 }}>Browse and manage R&D projects</p>
+                    <p className="text-secondary" style={{ margin: 0 }}>Browse and manage Tech projects</p>
                 </div>
                 {isRND() && (
                     <button onClick={() => setShowCreateModal(true)} className="btn btn-primary">

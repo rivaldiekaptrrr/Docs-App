@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const db = require('./config/database');
 
 /**
- * Seed default users for R&D Hub
+ * Seed default users for DocuStack
  * This script is idempotent - safe to run multiple times
  */
 

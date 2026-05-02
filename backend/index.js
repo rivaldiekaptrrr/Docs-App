@@ -103,7 +103,7 @@ app.use((req, res) => {
 // Start server
 app.listen(PORT, () => {
     const isMock = !fs.existsSync(envPath) || !process.env.DATABASE_URL || process.env.MOCK_MODE === 'true';
-    console.log(`🚀 R&D Hub API server running on port ${PORT}`);
+    console.log(`🚀 DocuStack API server running on port ${PORT}`);
     console.log(`📡 Environment: ${process.env.NODE_ENV || 'development'}`);
     if (isMock) {
         console.log('🧪 Database: MOCK MODE (in-memory data)');

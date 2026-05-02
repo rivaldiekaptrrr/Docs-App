@@ -1,4 +1,4 @@
-# R&D Hub & Knowledge Management System
+# DocuStack & Knowledge Management System
 
 A comprehensive web-based platform for internal knowledge management, technical reporting, and daily activity tracking with visual documentation support.
 
@@ -45,7 +45,7 @@ rnd-hub/
 
 ## Features
 
-- **User Management**: Role-based access control (R&D / Viewer)
+- **User Management**: Role-based access control (Tech / Viewer)
 - **Project Documentation**: Grid-based project cards with rich text editing
 - **Daily Logbook**: Activity tracking with image attachments
 - **Error Reporting**: Before/after troubleshooting documentation
@@ -125,7 +125,7 @@ You can run the entire system without installing or configuring PostgreSQL. This
    ```
 4. **Mock Credentials**:
    - **Admin**: `admin` / `password123`
-   - **R&D**: `rnd_user` / `password123`
+   - **Tech**: `tech_user` / `password123`
    - **Viewer**: `viewer` / `password123`
 
 
@@ -153,7 +153,7 @@ Frontend will run on `http://localhost:5173`
 
 After running the database schema, you can login with:
 
-- **R&D User**: 
+- **Tech User**: 
   - Username: `ahmad.rnd`
   - Password: `password123`
 
@@ -171,31 +171,31 @@ After running the database schema, you can login with:
 ### Projects
 - `GET /api/projects` - List all projects
 - `GET /api/projects/:id` - Get project details
-- `POST /api/projects` - Create project (R&D only)
-- `PUT /api/projects/:id` - Update project (R&D only)
-- `DELETE /api/projects/:id` - Delete project (R&D only)
+- `POST /api/projects` - Create project (Tech only)
+- `PUT /api/projects/:id` - Update project (Tech only)
+- `DELETE /api/projects/:id` - Delete project (Tech only)
 
 ### Documentation
 - `GET /api/documentation/project/:projectId` - Get project docs
 - `GET /api/documentation/:id` - Get single document
-- `POST /api/documentation` - Create document (R&D only)
-- `PUT /api/documentation/:id` - Update document (R&D only)
-- `DELETE /api/documentation/:id` - Delete document (R&D only)
+- `POST /api/documentation` - Create document (Tech only)
+- `PUT /api/documentation/:id` - Update document (Tech only)
+- `DELETE /api/documentation/:id` - Delete document (Tech only)
 
 ### Logbook
 - `GET /api/logbook` - Get logbook entries (with filters)
 - `GET /api/logbook/:id` - Get single entry
-- `POST /api/logbook` - Create entry (R&D only)
-- `PUT /api/logbook/:id` - Update entry (R&D only)
-- `DELETE /api/logbook/:id` - Delete entry (R&D only)
+- `POST /api/logbook` - Create entry (Tech only)
+- `PUT /api/logbook/:id` - Update entry (Tech only)
+- `DELETE /api/logbook/:id` - Delete entry (Tech only)
 
 ### Error Reports
 - `GET /api/errors` - List error reports (with filters)
 - `GET /api/errors/:id` - Get single error report
-- `POST /api/errors` - Create error report (R&D only)
-- `PUT /api/errors/:id` - Update error report (R&D only)
-- `PATCH /api/errors/:id/status` - Update status (R&D only)
-- `DELETE /api/errors/:id` - Delete error report (R&D only)
+- `POST /api/errors` - Create error report (Tech only)
+- `PUT /api/errors/:id` - Update error report (Tech only)
+- `PATCH /api/errors/:id/status` - Update status (Tech only)
+- `DELETE /api/errors/:id` - Delete error report (Tech only)
 
 ### File Upload
 - `POST /api/upload/image` - Upload single image

@@ -27,11 +27,11 @@ const users = [
     },
     {
         id: 2,
-        username: 'rnd_user',
+        username: 'tech_user',
         password_hash: DEFAULT_HASH,
         full_name: 'Budi Santoso',
         email: 'budi@example.com',
-        role: 'R&D',
+        role: 'Tech',
         status: 'Active',
         created_at: new Date('2024-02-10T00:00:00Z'),
         last_login: new Date('2024-06-10T09:00:00Z'),
@@ -262,7 +262,7 @@ const activityLog = [
 
 // ─── Settings ─────────────────────────────────────────────────────────────────
 const settings = [
-    { id: 1, key: 'app_name',          value: 'R&D Hub (Mock Mode)', updated_at: new Date() },
+    { id: 1, key: 'app_name',          value: 'DocuStack (Mock Mode)', updated_at: new Date() },
     { id: 2, key: 'app_description',   value: 'Platform dokumentasi riset dan pengembangan', updated_at: new Date() },
     { id: 3, key: 'allow_registration',value: 'false', updated_at: new Date() },
     { id: 4, key: 'max_upload_size',   value: '10', updated_at: new Date() },

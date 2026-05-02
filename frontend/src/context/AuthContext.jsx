@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const isRND = () => user?.role === 'R&D' || user?.role === 'Admin';
+    const isRND = () => user?.role === 'Tech' || user?.role === 'Admin';
     const isAdmin = () => user?.role === 'Admin';
 
     return (

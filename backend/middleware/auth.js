@@ -43,10 +43,10 @@ const verifyToken = async (req, res, next) => {
 
 // ─── Role guards ──────────────────────────────────────────────────────────────
 
-// Require R&D or Admin role
+// Require Tech or Admin role
 const requireRND = (req, res, next) => {
-    if (req.user.role !== 'R&D' && req.user.role !== 'Admin') {
-        return res.status(403).json({ error: 'Access denied. R&D or Admin role required.' });
+    if (req.user.role !== 'Tech' && req.user.role !== 'Admin') {
+        return res.status(403).json({ error: 'Access denied. Tech or Admin role required.' });
     }
     next();
 };
